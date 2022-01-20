@@ -9,16 +9,16 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ReceiptProductConverter implements Converter<ReceiptProductDto, ReceiptProduct> {
 
-  ProductDao productDao = new H2ProductDao();
+    ProductDao productDao = new H2ProductDao();
 
-  @Override
-  public ReceiptProduct toModel(ReceiptProductDto dto) {
-    return new ReceiptProduct(productDao.getProductById(dto.getId()), dto.getQuantity());
-  }
+    @Override
+    public ReceiptProduct toModel(ReceiptProductDto dto) {
+        return new ReceiptProduct(productDao.getProductById(dto.getId()), dto.getQuantity());
+    }
 
-  @Override
-  public ReceiptProductDto toDto(ReceiptProduct model) {
-    return new ReceiptProductDto(model.getProduct().getId(), model.getQuantity());
-  }
+    @Override
+    public ReceiptProductDto toDto(ReceiptProduct model) {
+        return new ReceiptProductDto(model.getProduct().getId(), model.getQuantity());
+    }
 
 }

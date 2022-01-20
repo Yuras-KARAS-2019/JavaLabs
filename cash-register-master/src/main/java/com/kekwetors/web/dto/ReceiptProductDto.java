@@ -5,12 +5,12 @@ import lombok.Value;
 
 @Value
 public class ReceiptProductDto {
-  Integer id;
-  Double quantity;
+    Integer id;
+    Double quantity;
 
-  public ReceiptProductDto(@JsonProperty("id") Integer id,
-                           @JsonProperty("quantity") Double quantity) {
-    this.id = id;
-    this.quantity = quantity;
-  }
+    public ReceiptProductDto(@JsonProperty("id") Integer id,
+                             @JsonProperty("quantity") Double quantity) {
+        this.id = id;
+        this.quantity = quantity;
+    }
 }

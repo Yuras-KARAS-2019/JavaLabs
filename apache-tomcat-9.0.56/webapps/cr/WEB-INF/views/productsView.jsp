@@ -19,24 +19,28 @@
 
     <table class="table table-sm table-hover">
         <thead>
-            <tr class="table-light">
-                <th>Id</th>
-                <th>Name</th>
-                <th>AvailableAmount</th>
-                <th>Price</th>
-            </tr>
+        <tr class="table-light">
+            <th>Id</th>
+            <th>Name</th>
+            <th>AvailableAmount</th>
+            <th>Price</th>
+        </tr>
         </thead>
         <tbody>
-            <c:forEach items="${products}" var="product">
-                <tr>
-                    <td><c:out value="${product.id}" /></td>
-                    <td><c:out value="${product.name}" /></td>
-                    <td><c:out value="${product.availableAmount}" /></td>
-                    <td><c:out value="${product.price}" /></td>
-                </tr>
-            </c:forEach>
+        <c:forEach items="${products}" var="product">
+            <tr>
+                <td><c:out value="${product.id}"/></td>
+                <td><c:out value="${product.name}"/></td>
+                <td><c:out value="${product.availableAmount}"/></td>
+                <td><c:out value="${product.price}"/></td>
+            </tr>
+        </c:forEach>
         </tbody>
     </table>
+    <br/>
+    <a href="${pageContext.request.contextPath}/api/v0/products?addProduct=true" class="btn btn-secondary btn-sm">
+        Add product
+    </a>
 </div>
 
 </body>

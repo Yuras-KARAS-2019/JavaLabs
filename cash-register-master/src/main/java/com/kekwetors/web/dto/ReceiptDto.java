@@ -9,20 +9,19 @@ import java.util.List;
 
 @Value
 public class ReceiptDto {
+    Integer id;
+    Integer employeeId;
+    List<ReceiptProductDto> receiptProductDtos;
+    ReceiptStatus status;
 
-  Integer id;
-  Integer employeeId;
-  List<ReceiptProductDto> receiptProductDtos;
-  ReceiptStatus status;
-
-  @JsonCreator
-  public ReceiptDto(@JsonProperty("id") Integer id,
-                    @JsonProperty("employeeId") Integer employeeId,
-                    @JsonProperty("receiptProductDtos") List<ReceiptProductDto> receiptProductDtos,
-                    @JsonProperty("status") ReceiptStatus status) {
-    this.id = id;
-    this.employeeId = employeeId;
-    this.receiptProductDtos = receiptProductDtos;
-    this.status = status;
-  }
+    @JsonCreator
+    public ReceiptDto(@JsonProperty("id") Integer id,
+                      @JsonProperty("employeeId") Integer employeeId,
+                      @JsonProperty("receiptProductDtos") List<ReceiptProductDto> receiptProductDtos,
+                      @JsonProperty("status") ReceiptStatus status) {
+        this.id = id;
+        this.employeeId = employeeId;
+        this.receiptProductDtos = receiptProductDtos;
+        this.status = status;
+    }
 }

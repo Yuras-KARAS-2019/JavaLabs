@@ -13,38 +13,39 @@ import static java.util.Objects.isNull;
 @Resource.Classpath("application.properties")
 public class DbProperties {
 
-  @Property("db.driver")
-  String driver;
+    @Property("db.driver")
+    String driver;
 
-  @Property("db.username")
-  String username;
+    @Property("db.username")
+    String username;
 
-  @Property("db.password")
-  String password;
+    @Property("db.password")
+    String password;
 
-  @Property("db.url")
-  String url;
+    @Property("db.url")
+    String url;
 
-  @Property("db.migrations")
-  String migrations;
+    @Property("db.migrations")
+    String migrations;
 
-  private DbProperties() {}
-
-  public static DbProperties getInstance() {
-    return DbPropertiesHolder.getInstance();
-  }
-
-  private static class DbPropertiesHolder {
-
-    private static DbProperties dbProperties;
+    private DbProperties() {
+    }
 
     public static DbProperties getInstance() {
-      if (isNull(dbProperties)) {
-        dbProperties = new DbProperties();
-        PropertyLoader.populate(dbProperties);
-        log.info("Successfully loaded properties [{}]", dbProperties);
-      }
-      return dbProperties;
+        return DbPropertiesHolder.getInstance();
     }
-  }
+
+    private static class DbPropertiesHolder {
+
+        private static DbProperties dbProperties;
+
+        public static DbProperties getInstance() {
+            if (isNull(dbProperties)) {
+                dbProperties = new DbProperties();
+                PropertyLoader.populate(dbProperties);
+                log.info("Successfully loaded properties [{}]", dbProperties);
+            }
+            return dbProperties;
+        }
+    }
 }

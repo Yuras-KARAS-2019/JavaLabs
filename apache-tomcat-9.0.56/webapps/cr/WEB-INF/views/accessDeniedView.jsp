@@ -9,10 +9,10 @@
           crossorigin="anonymous">
 </head>
 <body>
-    <div class="container my-2">
-        <jsp:include page="_menu.jsp"></jsp:include>
-        <br/><br/>
-        <h3 style="color:red;">Access Denied!</h3>
-    </div>
+<div class="container my-2">
+    <jsp:include page="_menu.jsp"></jsp:include>
+    <br/><br/>
+    <h3 style="color:red;">Access Denied!</h3>
+</div>
 </body>
 </html>

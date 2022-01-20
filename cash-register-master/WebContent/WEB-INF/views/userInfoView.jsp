@@ -12,15 +12,18 @@
 <div class="container my-2">
     <jsp:include page="_menu.jsp"></jsp:include>
 
-    <h3>Hello: ${loggedInUser.name}</h3>
+    <br />
+    <br />
+    <h3>Hello ${loggedInUser.name}, have a nice day!</h3>
 
-    Id: <b>${loggedInUser.id}</b>
     <br />
-    Name: <b>${loggedInUser.name}</b>
-    <br />
-    Role: ${loggedInUser.role}
+    <b>Id</b>: ${loggedInUser.id}
     <br/>
-    Login: ${loggedInUser.login}
+    <b>Name</b>: ${loggedInUser.name}
+    <br/>
+    <b>Role</b>: ${loggedInUser.role}
+    <br/>
+    <b>Login</b>: ${loggedInUser.login}
     <br/>
 </div>
 </body>

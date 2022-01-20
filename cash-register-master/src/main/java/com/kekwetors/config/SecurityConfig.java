@@ -8,21 +8,19 @@ import java.util.Map;
 
 public class SecurityConfig {
 
-  private static final Map<EmployeeRole, List<String>> availableMappings = new HashMap<>();
+    private static final Map<EmployeeRole, List<String>> availableMappings = new HashMap<>();
 
-  static {
-    init();
-  }
+    static {
+        init();
+    }
 
-  private static void init() {
-    availableMappings.put(EmployeeRole.CASHIER, List.of("/userInfo", "/api/v0/products"));
-    availableMappings.put(EmployeeRole.MERCHANDISE_EXPERT, List.of("/userInfo", "/api/v0/products"));
-    availableMappings.put(EmployeeRole.SENIOR_CASHIERS, List.of());
-    availableMappings.put(EmployeeRole.COMMON, List.of("/userInfo"));
-  }
+    private static void init() {
+        availableMappings.put(EmployeeRole.CASHIER, List.of("/userInfo", "/api/v0/receipts", "/api/v0/products"));
+        availableMappings.put(EmployeeRole.SENIOR_CASHIERS, List.of("/userInfo", "/api/v0/receipts", "/api/v0/products"));
+        availableMappings.put(EmployeeRole.MERCHANDISE_EXPERT, List.of("/userInfo", "/api/v0/products"));
+    }
 
-  public static List<String> getUrlPatternsForRole(EmployeeRole role) {
-    return availableMappings.get(role);
-  }
-
+    public static List<String> getUrlPatternsForRole(EmployeeRole role) {
+        return availableMappings.get(role);
+    }
 }

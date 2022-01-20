@@ -6,6 +6,6 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class ReceiptProduct {
-  private Product product;
-  private Double quantity;
+    private Product product;
+    private Double quantity;
 }

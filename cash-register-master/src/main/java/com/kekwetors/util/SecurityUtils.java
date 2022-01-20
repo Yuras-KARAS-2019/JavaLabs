@@ -35,7 +35,6 @@ public class SecurityUtils {
                 return true;
             }
         }
-
         return false;
     }
 

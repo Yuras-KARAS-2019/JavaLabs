@@ -18,37 +18,37 @@ import static java.lang.String.format;
 @WebFilter(urlPatterns = "/*")
 public class LoggingFilter implements Filter {
 
-  @Override
-  public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain chain) throws IOException, ServletException {
-    HttpServletRequest request = (HttpServletRequest) servletRequest;
+    @Override
+    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain chain) throws IOException, ServletException {
+        HttpServletRequest request = (HttpServletRequest) servletRequest;
 
-    String servletPath = request.getServletPath();
+        String servletPath = request.getServletPath();
 
-    Enumeration<String> headerNames = request.getHeaderNames();
-    StringBuilder headers = new StringBuilder();
+        Enumeration<String> headerNames = request.getHeaderNames();
+        StringBuilder headers = new StringBuilder();
 
-    if (headerNames != null) {
-      while (headerNames.hasMoreElements()) {
-        String headerName = headerNames.nextElement();
-        headers.append(format("{%s: %s} ", headerName, request.getHeader(headerName)));
-      }
+        if (headerNames != null) {
+            while (headerNames.hasMoreElements()) {
+                String headerName = headerNames.nextElement();
+                headers.append(format("{%s: %s} ", headerName, request.getHeader(headerName)));
+            }
+        }
+
+        Enumeration<String> parameterNames = request.getParameterNames();
+        StringBuilder parameters = new StringBuilder();
+
+        if (parameterNames != null) {
+            while (parameterNames.hasMoreElements()) {
+                String parameterName = parameterNames.nextElement();
+                parameters.append(format("{%s: %s} ", parameterName, request.getParameter(parameterName)));
+            }
+        }
+
+        final String INCOMING_REQUEST = "================== INCOMING REQUEST ==================\n";
+        log.info(INCOMING_REQUEST + "ServletPath: [{}]\nURL: [{}]\nHeaders: [{}]\nParameters: [{}]",
+                servletPath, request.getRequestURL(), headers, parameters);
+
+        chain.doFilter(servletRequest, servletResponse);
     }
-
-    Enumeration<String> parameterNames = request.getParameterNames();
-    StringBuilder parameters = new StringBuilder();
-
-    if (parameterNames != null) {
-      while (parameterNames.hasMoreElements()) {
-        String parameterName = parameterNames.nextElement();
-        parameters.append(format("{%s: %s} ", parameterName, request.getParameter(parameterName)));
-      }
-    }
-
-    final String INCOMING_REQUEST = "================== INCOMING REQUEST ==================\n";
-    log.info(INCOMING_REQUEST + "ServletPath: [{}]\nURL: [{}]\nHeaders: [{}]\nParameters: [{}]",
-            servletPath, request.getRequestURL(), headers, parameters);
-
-    chain.doFilter(servletRequest, servletResponse);
-  }
 
 }

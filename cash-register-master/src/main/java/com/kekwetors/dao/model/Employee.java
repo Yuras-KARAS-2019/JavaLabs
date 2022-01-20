@@ -6,10 +6,10 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class Employee {
-  private Integer id;
-  private String name;
-  private EmployeeRole role;
+    private Integer id;
+    private String name;
+    private EmployeeRole role;
 
-  private String login;
-  private String password;
+    private String login;
+    private String password;
 }

@@ -15,21 +15,23 @@
 
     <p style="color: red;">${errorString}</p>
 
-    <form method="POST" action="${pageContext.request.contextPath}/login" class="form-signin">
-        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-        <input type="hidden" name="redirectId" value="${param.redirectId}" />
+    <form method="POST" action="${pageContext.request.contextPath}/login" class="form-sing-in">
+        <h1 class="h3 mb-3   font-weight-normal">Please sign in</h1>
+        <input type="hidden" name="redirectId" value="${param.redirectId}"/>
 
         <label for="login" class="sr-only">Login</label>
-        <input value="${user.login}" name="login" type="text" id="login" class="form-control" placeholder="Login" required="">
+        <input value="${user.login}" name="login" type="text" id="login" class="form-control" placeholder="Login"
+               required="">
 
-        <br />
+        <br/>
 
         <label for="password" class="sr-only">Password</label>
-        <input value="${user.password}" name="password" type="password" id="password" class="form-control" placeholder="Password" required="">
+        <input value="${user.password}" name="password" type="password" id="password" class="form-control"
+               placeholder="Password" required="">
 
-        <br />
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-        <a class="btn btn-lg btn-danger btn-block" href="${pageContext.request.contextPath}/">Cancel</a>
+        <br/>
+        <button class="btn btn-lg btn-success btn-block" type="submit">Sign in</button>
+        <a class="btn btn-lg btn-primary btn-block" href="${pageContext.request.contextPath}/registration">Registration</a>
     </form>
 
 </div>

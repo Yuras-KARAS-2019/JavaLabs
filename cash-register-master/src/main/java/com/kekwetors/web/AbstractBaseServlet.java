@@ -17,22 +17,22 @@ import static com.kekwetors.dao.DaoFactory.getDaoFactory;
 @Slf4j
 public class AbstractBaseServlet extends HttpServlet {
 
-  protected final static DaoFactory factory = getDaoFactory(H2);
-  protected final static ObjectMapper objectMapper = new ObjectMapper();
+    protected final static DaoFactory factory = getDaoFactory(H2);
+    protected final static ObjectMapper objectMapper = new ObjectMapper();
 
-  protected static <T> void sendResponse(T responseObject, HttpServletResponse response) throws IOException {
-    String JSONResponse = objectMapper.writeValueAsString(responseObject);
+    protected static <T> void sendResponse(T responseObject, HttpServletResponse response) throws IOException {
+        String JSONResponse = objectMapper.writeValueAsString(responseObject);
 
-    response.setContentType("application/json");
-    response.getWriter().write(JSONResponse);
-  }
+        response.setContentType("application/json");
+        response.getWriter().write(JSONResponse);
+    }
 
-  @SneakyThrows
-  protected String parseRequest(HttpServletRequest req) {
-    String requestBody = req.getReader()
-            .lines()
-            .collect(Collectors.joining(""));
-    log.info("RequestBody: [{}]", requestBody);
-    return requestBody;
-  }
+    @SneakyThrows
+    protected String parseRequest(HttpServletRequest req) {
+        String requestBody = req.getReader()
+                .lines()
+                .collect(Collectors.joining(""));
+        log.info("RequestBody: [{}]", requestBody);
+        return requestBody;
+    }
 }

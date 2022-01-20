@@ -33,7 +33,6 @@ public class UserUtils {
       idUriMap.put(id, requestUri);
       return id;
     }
-
     return id;
   }
 

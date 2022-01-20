@@ -32,7 +32,6 @@ public class UserRoleRequestWrapper extends HttpServletRequestWrapper {
     if (this.userLogin == null) {
       return realRequest.getUserPrincipal();
     }
-
     return () -> userLogin;
   }
 }
